@@ -11,7 +11,8 @@ monitoring project.
 }
 \section{Simulation functions}{
 
-The simulation functions ...
+The simulation functions include \code{create.raster}, \code{create.site.data},
+\code{sim.occu.data}, \code{df2s123df}, and \code{one.step}.
 }
 
 \section{Quality control (QC) functions}{
