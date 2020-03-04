@@ -1,5 +1,5 @@
 # SppDistMonProj
-An R package developed for data workflow training exercises delivered by the FWS Inventory and Monitoring Program, Alaska Region
+An R package (in development) used for data workflow training delivered by the FWS Inventory and Monitoring Program, Alaska Region
 
 Installation instructions:
 ```
