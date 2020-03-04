@@ -5,9 +5,9 @@
 \alias{SppDistMonProj}
 \title{SppDistMonProj: a package for learning data workflow concepts with a Species Distribution Monitoring Project}
 \description{
-The SppDistMonProj package contains functions used simulate, quality check,
-analyze, plot results and report for an hypothetical species distribution
-monitoring project.
+The \code{SppDistMonProj} package contains a suite of functions for suite of R
+functions used for simulating, processing, and analyzing data from an
+example survey project.
 }
 \section{Simulation functions}{
 
