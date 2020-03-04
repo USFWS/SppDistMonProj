@@ -1,0 +1,23 @@
+---
+title: "How to use the SppDisMonProj package"
+author: Jared Laufenberg, McCrea Cobb
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{SppDistMonProj}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Purpose
+
+Here's where a description of the purpose of the package will go.
+
+## Getting Started
+
+Here's where instructions on how to use the package will go.
+
+## Questions and Feedback
+
+Contact [Jared Laufenberg](mailto: jared_laufenberg@fws.gov) or 
+[McCrea Cobb](mailto: mccrea_cobb@fws.gov). 

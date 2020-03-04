@@ -16,3 +16,6 @@ Imports:
     knitr,
     xtable,
     unmarked
+VignetteBuilder: knitr
+Suggests: 
+    rmarkdown
