@@ -7,13 +7,13 @@
 df2s123df(occu.data, year)
 }
 \arguments{
-\item{occu.data}{Data.frame containing species occurrence and observation data.}
+\item{occu.data}{dataframe containing species occurrence and observation data}
 
-\item{year}{Numeric value for survey year.}
+\item{year}{numeric value for survey year}
 }
 \value{
-A data.frame formatted the same as data exported from Survey123.
+A dataframe formatted the same as data exported from ESRI Survey123
 }
 \description{
-Transforms a occu.data object to a data.frame that matches the format of data exported from Survey123.
+Transforms an \code{occu.data} object to a dataframe that matches the format of data exported from ESRI's Survey123
 }

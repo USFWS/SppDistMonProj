@@ -7,16 +7,13 @@
 create.raster(seed = 1234, ngr = 10)
 }
 \arguments{
-\item{seed}{A single value used to set seed for replicability.}
+\item{seed}{a single numeric value used to set seed for replicability}
 
-\item{ngr}{A single value for number of rows and columns in site grid, e.g., ngr = 10 creates a 10x10 grid.}
+\item{ngr}{a single numeric value indicating the number of rows and columns in site grid (e.g., ngr = 10 creates a 10x10 grid)}
 }
 \value{
-A RasterLayer as from \code{\link{raster}}.
+a rasterLayer as from \code{\link{raster}}.
 }
 \description{
-Create spatial raster object for a spatially correlated habitat covariate used to simulate species occurrence.
-}
-\examples{
-create.raster(ngr = 10)
+Creates spatial raster object for a spatially correlated habitat covariate used to simulate species occurrence
 }

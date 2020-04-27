@@ -7,10 +7,10 @@
 naive.occu(x)
 }
 \arguments{
-\item{x}{List of processed data objects created using the \code{process.data} function}
+\item{x}{list of processed data objects created using the \code{process.data} function}
 }
 \value{
-Vector containing values of 0 or 1 for each surveyed site indicating whether the species was observed (1) or unobserved (0).
+vector containing values of 0 or 1 for each surveyed site indicating whether the species was observed (1) or unobserved (0)
 }
 \description{
 Calculate Naive Species Occurrence for Surveyed Sites

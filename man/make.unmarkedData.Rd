@@ -7,14 +7,14 @@
 make.unmarkedData(sitedf, occudf, year)
 }
 \arguments{
-\item{sitedf}{Data.frame containing raw site-level data.}
+\item{sitedf}{dataframe containing raw site-level data}
 
-\item{occudf}{Data.frame containing raw species occurrence data.}
+\item{occudf}{dataframe containing raw species occurrence data}
 
-\item{year}{Numeric value for survey year.}
+\item{year}{numeric value for survey year}
 }
 \value{
-Object of class unamrkedFrameOccu
+Object of class \code{unamrkedFrameOccu}
 }
 \description{
 Create Formatted Data Object for Analysis Using unmarked Package

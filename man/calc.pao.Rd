@@ -7,14 +7,14 @@
 calc.pao(topmod, stat = "mode", n)
 }
 \arguments{
-\item{topmod}{Object of class \code{unmarkedFitOccu} for single-species occupancy model.}
+\item{topmod}{object of class \code{unmarkedFitOccu} for single-species occupancy model}
 
-\item{stat}{Statistic (\code{mean} or \code{median}) used to summarize posterior distribution.}
+\item{stat}{statistic (\code{mean} or \code{median}) used to summarize posterior distribution}
 
-\item{n}{Number of sites surveyed.}
+\item{n}{number of sites surveyed}
 }
 \value{
-Vector containing posterior mean or median and upper and lower 95% confidence limits.
+vector containing posterior mean or median and upper and lower 95% confidence limits
 }
 \description{
 Calculate Estimated Proportion of Sites At Which Species Occurs

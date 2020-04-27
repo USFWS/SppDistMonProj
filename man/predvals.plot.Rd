@@ -7,8 +7,8 @@
 predvals.plot(predvals)
 }
 \arguments{
-\item{predvals}{List of length 2 containing predicted values for probability of species
-occurrence and probability of detection.}
+\item{predvals}{list of length 2 containing predicted values for probability of species
+occurrence and probability of detection}
 }
 \description{
 Plot Predicted Values for Probability of Species Occurrence and Detection

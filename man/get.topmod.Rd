@@ -7,12 +7,12 @@
 get.topmod(x1, x2)
 }
 \arguments{
-\item{x1}{Year-specific \code{unmarkedFitList} object containing individual results for each model in a priori model set.}
+\item{x1}{year-specific \code{unmarkedFitList} object containing individual results for each model in a priori model set}
 
-\item{x2}{Year-specific vector containing model rankings.}
+\item{x2}{year-specific vector containing model rankings}
 }
 \value{
-Object of class \code{unmarkedFitOccu}
+object of class \code{unmarkedFitOccu}
 }
 \description{
 Extract \code{unmarkedFitOccu} Object for Top Ranked Model

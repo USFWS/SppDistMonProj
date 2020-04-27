@@ -20,31 +20,31 @@ one.step(
 )
 }
 \arguments{
-\item{year}{Numeric value for survey year.}
+\item{year}{numeric value for survey year}
 
-\item{habcov}{Data.frame containing IDs, x-y coordinates, and habitat covariate values for all sites.}
+\item{habcov}{dataframe containing IDs, x-y coordinates, and habitat covariate values for all sites}
 
-\item{nsites}{Number of sites to randomly select from all sites that will be surveyed.}
+\item{nsites}{number of sites to randomly select from all sites that will be surveyed}
 
-\item{nocc}{Number of survey occasions conducted per site.}
+\item{nocc}{number of survey occasions conducted per site}
 
-\item{p}{Data.frame containing detection probabilities.}
+\item{p}{dataframe containing detection probabilities}
 
-\item{showcoords}{Logical value for whether to display coordinates for species location (TRUE)
-or site name (FALSE) as main title.}
+\item{showcoords}{logical value for whether to display coordinates for species location (TRUE)
+or site name (FALSE) as main title}
 
-\item{cex}{Symbol size.}
+\item{cex}{symbol size}
 
-\item{ngood}{Number of symbols used under good visibility conditions.}
+\item{ngood}{number of symbols used under good visibility conditions}
 
-\item{npoor}{Number of symbols used under poor visibility conditions.}
+\item{npoor}{number of symbols used under poor visibility conditions}
 
-\item{write.data}{Logical value specifying whether to save site and occurrence data sets to raw data folder.}
+\item{write.data}{logical value specifying whether to save site and occurrence data sets to raw data folder}
 
-\item{write.images}{Logical value specifying whether to save images for class exercise.}
+\item{write.images}{logical value specifying whether to save images for class exercise}
 }
 \value{
-List of length 3 containing site.data, occu.data, and s123.data.
+list of length 3 containing site.data, occu.data, and s123.data
 }
 \description{
 Simulate, Format, and Save Survey Site and Observation Data

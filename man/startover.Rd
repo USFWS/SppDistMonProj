@@ -9,6 +9,3 @@ startover()
 \description{
 Delete All Raw and Derived Data and Products
 }
-\examples{
-startover()
-}

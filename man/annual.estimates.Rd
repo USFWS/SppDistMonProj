@@ -7,15 +7,15 @@
 annual.estimates(Epsi, Ep, year, figdir.path)
 }
 \arguments{
-\item{Epsi}{Data.frame containing estimated values for occurrence probabilities, SE,
-upper & lower CLs, and corresponding habitat covariate values.}
+\item{Epsi}{dataframe containing estimated values for occurrence probabilities, SE,
+upper & lower CLs, and corresponding habitat covariate values}
 
-\item{Ep}{Data.frame containing estimated values for detection probabilities, SE,
-upper & lower CLs, and corresponding visibility covariate values.}
+\item{Ep}{dataframe containing estimated values for detection probabilities, SE,
+upper & lower CLs, and corresponding visibility covariate values}
 
-\item{year}{Numeric value for survey year.}
+\item{year}{numeric value for survey year}
 
-\item{figdir.path}{Directory path for temporary storage of report figures.}
+\item{figdir.path}{directory path for temporary storage of report figures}
 }
 \value{
 List of length equal to number of survey years processed. Each element is contains a NULL value.

@@ -7,10 +7,10 @@
 extract.year(filename)
 }
 \arguments{
-\item{filename}{Full file path for data file.}
+\item{filename}{full file path to data file}
 }
 \value{
-Character string.
+character string
 }
 \description{
 Extract Year From Data File Name

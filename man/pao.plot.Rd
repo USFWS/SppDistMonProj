@@ -7,11 +7,11 @@
 pao.plot(PAO, years, modranks)
 }
 \arguments{
-\item{PAO}{Data.frame containing posterior mean or median and upper and lower 95-percent confidence limits for all survey years.}
+\item{PAO}{dataframe containing posterior mean or median and upper and lower 95-percent confidence limits for all survey years}
 
-\item{years}{Numeric vector containing survey years.}
+\item{years}{numeric vector containing survey years}
 
-\item{modranks}{Data.frame containing model rankings for all survey years.}
+\item{modranks}{dataframe containing model rankings for all survey years}
 }
 \description{
 Plot Annual Estimated Proportions of Sites At Which Species Occurs

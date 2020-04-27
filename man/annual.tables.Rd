@@ -7,9 +7,9 @@
 annual.tables(modsel.table, year)
 }
 \arguments{
-\item{modsel.table}{Data.frame containing model output from \code{unmarked}}
+\item{modsel.table}{dataframe containing model output from \code{unmarked}}
 
-\item{year}{Numeric value for survey year.}
+\item{year}{numeric value for survey year}
 }
 \value{
 List of length equal to number of survey years processed. Each element is contains a NULL value.

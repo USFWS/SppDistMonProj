@@ -7,25 +7,27 @@
 create.site.data(year, habcov, nsites)
 }
 \arguments{
-\item{year}{Numeric value for survey year.}
+\item{year}{numeric value for survey year}
 
-\item{habcov}{Data.frame containing IDs, x-y coordinates, and habitat covariate values for all sites.}
+\item{habcov}{dataframe containing IDs, x-y coordinates, and habitat covariate values for all sites}
 
-\item{nsites}{Number of sites to randomly select from all sites that will be surveyed.}
+\item{nsites}{numeric value indicating the number of sites to randomly select from all sites that will be surveyed}
 }
 \value{
-A data.frame containing IDs, x-y coordinates, and habitat covariate values for selected survey sites.
+a dataframe containing IDs, x-y coordinates, and habitat covariate values for selected survey sites
 }
 \description{
-Create site-level data object for sites to be surveyed conditional on year.
+Creates a site-level data object for sites to be surveyed conditional on year.
 }
 \details{
 Note: year is used to set the seed for random site selection process.
 }
 \examples{
+\dontrun{
 rast <- create.rast()
 habcov <- data.frame(id = as.factor(1:ncell(rast)), rasterToPoints(rast))
 site.data <- create.site.data(year = 2020, habcov = habcov, nsites = 20)
 str(site.data)
+}
 
 }

@@ -7,16 +7,16 @@
 process.data(occudfs, sitedfs, years, habcov)
 }
 \arguments{
-\item{occudfs}{List of data.frames containing annual raw species occurrence data.}
+\item{occudfs}{list of dataframes containing annual raw species occurrence data}
 
-\item{sitedfs}{List of data.frames containing annual raw site-level data.}
+\item{sitedfs}{list of dataframes containing annual raw site-level data}
 
-\item{years}{Numeric vector of survey years.}
+\item{years}{numeric vector of survey years}
 
-\item{habcov}{Object of class RasterLayer containing spatial covariate.}
+\item{habcov}{object of class \code{RasterLayer} containing spatial covariate}
 }
 \value{
-List of length 6 with the following elements: 1) numeric vector of survey years, 2) list of year-specific
+list of length 6 with the following elements: 1) numeric vector of survey years, 2) list of year-specific
 data objects of class unmarkedFrameOccu, 3) list of year-specific raw species occurrence data.frames, 4) list of
 year-specific site-level data.frames, 5) list of year-specific numeric vectors containing naive occurrence values,
 and 6) object of class RasterLayer containing a spatial covariate.

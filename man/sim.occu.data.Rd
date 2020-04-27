@@ -17,26 +17,26 @@ sim.occu.data(
 )
 }
 \arguments{
-\item{year}{Numeric value for survey year.}
+\item{year}{numeric value for survey year}
 
-\item{habcov}{Data.frame containing IDs, x-y coordinates, and habitat covariate values for all sites.}
+\item{habcov}{dataframe containing IDs, x-y coordinates, and habitat covariate values for all sites}
 
-\item{site.data}{Data.frame containing site-level data for surveyed sites.}
+\item{site.data}{dataframe containing site-level data for surveyed sites}
 
-\item{nocc}{Number of survey occasions conducted per site.}
+\item{nocc}{numeric value indicating the number of survey occasions conducted per site}
 
-\item{p}{Data.frame containing detection probabilities.}
+\item{p}{dataframe containing detection probabilities}
 
-\item{observer.names}{Vector of character strings containing names of observers conducting surveys.}
+\item{observer.names}{vector of character strings containing names of observers conducting surveys}
 
-\item{vis.probs}{Vector of length 2 containing probability of "good" and "poor" visibility occurring any given survey.}
+\item{vis.probs}{vector of length 2 containing probability of "good" and "poor" visibility occurring any given survey}
 
-\item{meanoccu}{Value between 0 and 1 used as intercept of linear model for species occurrence probability.}
+\item{meanoccu}{value between 0 and 1 used as intercept of linear model for species occurrence probability}
 
-\item{beta1}{Value used as slope coefficient for relationship between species occurrence probability and a habitat covariate.}
+\item{beta1}{value used as slope coefficient for relationship between species occurrence probability and a habitat covariate}
 }
 \value{
-Data.frame containing all simulated species occurrence and observation data.
+A dataframe containing all simulated species occurrence and observation data
 }
 \description{
 Simulate Species Occurrence and Observation Data
@@ -53,9 +53,11 @@ simulation is transformed to the logit scale.
 Default value for \code{beta1} is 2 on the logit scale.
 }
 \examples{
+\dontrun{
 nocc <- 5
 p <- data.frame(label = c("good","poor"), p = c(0.7,0.3))
 occu.data <- sim.occu.data(year = 2020, habcov = habcov, site.data = site.data, nocc = nocc, p = p)
 str(occu.data)
+}
 
 }

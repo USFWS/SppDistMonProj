@@ -7,10 +7,10 @@
 get.betas(mod)
 }
 \arguments{
-\item{mod}{Object of class \code{unmarkedFitOccu} for single-species occupancy model.}
+\item{mod}{object of class \code{unmarkedFitOccu} for single-species occupancy model}
 }
 \value{
-List of length 2 containing estimates of model parameters for
+list of length 2 containing estimates of model parameters for
 (1) occurrence probability and (2) detection probability
 }
 \description{

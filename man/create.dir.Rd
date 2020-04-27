@@ -2,7 +2,7 @@
 % Please edit documentation in R/misc_functions.R
 \name{create.dir}
 \alias{create.dir}
-\title{Creates a File Directory for a New Refuge I&M Project}
+\title{Create a File Directory for a New Refuge I&M Project}
 \usage{
 create.dir(proj.name = NULL, dir.name = NULL, moreFolders = NULL)
 }
@@ -16,7 +16,4 @@ folders to be included in project directory.}
 }
 \description{
 A function to create a new file directory structure. The directory structure is based off the Alaska I&M biometric project directory template.
-}
-\examples{
-create.dir(proj.name = "bear_survey")
 }

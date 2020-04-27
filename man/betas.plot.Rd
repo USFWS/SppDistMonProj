@@ -10,9 +10,9 @@ betas.plot(betas, years, modranks)
 \item{betas}{List of length equal to number of survey years.  Each element contains a ist of length 2
 containing estimates of model parameters for (1) occurrence probability and (2) detection probability}
 
-\item{years}{Numeric vector containing survey years.}
+\item{years}{numeric vector containing survey years}
 
-\item{modranks}{Data.frame containing model rankings for all survey years.}
+\item{modranks}{dataframe containing model rankings for all survey years}
 }
 \description{
 Plot Estimates and CIs of Linear Model Coefficients for Species Occurrence and Detection Probalities
