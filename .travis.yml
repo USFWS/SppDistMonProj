@@ -4,6 +4,7 @@ warnings_are_errors: false
 cran: http://cran.rstudio.com
 dist: trusty
 cache: packages
+os: windows
 
 r:
   - release
