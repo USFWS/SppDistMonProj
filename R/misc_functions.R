@@ -1,7 +1,6 @@
 
 
-
-#' Creates a File Directory for a New Refuge I&M Project
+#' Create a File Directory for a New Refuge I&M Project
 #'
 #' @description A function to create a new file directory structure. The directory structure is based off the Alaska I&M biometric project directory template.
 #'
@@ -10,7 +9,7 @@
 #' @param moreFolders List or vector containing character strings specifying full directory paths for additional
 #' folders to be included in project directory.
 #'
-#' @examples create.dir(proj.name = "bear_survey")
+#' @example \dontrun{create.dir(proj.name = "bear_survey")}
 #' @export
 
 create.dir <- function(proj.name = NULL, dir.name = NULL, moreFolders = NULL) {
@@ -72,7 +71,7 @@ create.dir <- function(proj.name = NULL, dir.name = NULL, moreFolders = NULL) {
 #'
 #' @export
 #'
-#' @examples startover()
+#' @example \dontrun{startover()}
 
 startover <- function(){
 
@@ -100,6 +99,4 @@ startover <- function(){
     files <- list.files("../resources/data/geodata", full.names = TRUE)
     file.remove(files[!grepl("html", files)])
 }
-
-
 

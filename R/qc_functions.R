@@ -1,16 +1,15 @@
 
 
-
 #' Create Year-Specific Summary Table and Figures and LaTeX Code for QC Report
 #'
-#' @param year Numeric value for survey year.
-#' @param naiveoccu Vector containing values of 0 or 1 for each surveyed site indicating whether
-#' the species was observed (1) or unobserved (0).
-#' @param habcov A RasterLayer object containing habitat covariate values.
-#' @param figdir.path Directory path for temporary storage of report figures.
-#' @param occu Data.frame containing raw species occurrence data.
-#' @param site Data.frame containing raw site-level data
-#' @param unmkd Object of class unmarkedFrameOccu used by unmarked package to fit single-season occupancy model.
+#' @param year numeric value for survey year
+#' @param naiveoccu vector containing values of 0 or 1 for each surveyed site indicating whether
+#' the species was observed (1) or unobserved (0)
+#' @param habcov rasterLayer object containing habitat covariate values
+#' @param figdir.path directory path for temporary storage of report figures
+#' @param occu dataframe containing raw species occurrence data
+#' @param site dataframe containing raw site-level data
+#' @param unmkd \code{unmarkedFrameOccu} object used by unmarked package to fit single-season occupancy model
 #'
 #' @return List of length equal to number of survey years processed. Each element is contains a NULL value.
 #' @export
@@ -106,9 +105,9 @@ annual.summaries <- function(occu, site, year, unmkd, naiveoccu, habcov, figdir.
 
 #' Extract Year From Data File Name
 #'
-#' @param filename Full file path for data file.
+#' @param filename full file path to data file
 #'
-#' @return Character string.
+#' @return character string
 #' @export
 
 extract.year <- function(filename){
@@ -123,9 +122,9 @@ extract.year <- function(filename){
 
 #' Calculate Naive Species Occurrence for Surveyed Sites
 #'
-#' @param x List of processed data objects created using the \code{process.data} function
+#' @param x list of processed data objects created using the \code{process.data} function
 #'
-#' @return Vector containing values of 0 or 1 for each surveyed site indicating whether the species was observed (1) or unobserved (0).
+#' @return vector containing values of 0 or 1 for each surveyed site indicating whether the species was observed (1) or unobserved (0)
 #' @export
 
 naive.occu <- function(x){
@@ -140,11 +139,11 @@ naive.occu <- function(x){
 
 #' Create Formatted Data Object for Analysis Using unmarked Package
 #'
-#' @param sitedf Data.frame containing raw site-level data.
-#' @param occudf Data.frame containing raw species occurrence data.
-#' @param year Numeric value for survey year.
+#' @param sitedf dataframe containing raw site-level data
+#' @param occudf dataframe containing raw species occurrence data
+#' @param year numeric value for survey year
 #'
-#' @return Object of class unamrkedFrameOccu
+#' @return Object of class \code{unamrkedFrameOccu}
 #' @export
 
 make.unmarkedData <- function(sitedf, occudf, year){
@@ -173,12 +172,12 @@ make.unmarkedData <- function(sitedf, occudf, year){
 
 #' Process Raw Occurrence and Site-Level Data for Analysis
 #'
-#' @param occudfs List of data.frames containing annual raw species occurrence data.
-#' @param sitedfs List of data.frames containing annual raw site-level data.
-#' @param years Numeric vector of survey years.
-#' @param habcov Object of class RasterLayer containing spatial covariate.
+#' @param occudfs list of dataframes containing annual raw species occurrence data
+#' @param sitedfs list of dataframes containing annual raw site-level data
+#' @param years numeric vector of survey years
+#' @param habcov object of class \code{RasterLayer} containing spatial covariate
 #'
-#' @return List of length 6 with the following elements: 1) numeric vector of survey years, 2) list of year-specific
+#' @return list of length 6 with the following elements: 1) numeric vector of survey years, 2) list of year-specific
 #' data objects of class unmarkedFrameOccu, 3) list of year-specific raw species occurrence data.frames, 4) list of
 #' year-specific site-level data.frames, 5) list of year-specific numeric vectors containing naive occurrence values,
 #' and 6) object of class RasterLayer containing a spatial covariate.

@@ -2,17 +2,15 @@
 
 #' Create Spatial Raster Object Containing Simulated Habitat Covariate Values
 #'
-#' @description
-#' Create spatial raster object for a spatially correlated habitat covariate used to simulate species occurrence.
+#' Creates spatial raster object for a spatially correlated habitat covariate used to simulate species occurrence
 #'
-#' @param seed A single value used to set seed for replicability.
-#' @param ngr A single value for number of rows and columns in site grid, e.g., ngr = 10 creates a 10x10 grid.
+#' @param seed a single numeric value used to set seed for replicability
+#' @param ngr a single numeric value indicating the number of rows and columns in site grid (e.g., ngr = 10 creates a 10x10 grid)
 #'
-#' @return A RasterLayer as from \code{\link{raster}}.
+#' @return a rasterLayer as from \code{\link{raster}}.
 #' @export
 #'
-#' @examples
-#' create.raster(ngr = 10)
+#' @example \dontrun{create.raster(ngr = 10)}
 
 create.raster <- function(seed = 1234, ngr = 10){
     set.seed(seed)
@@ -38,22 +36,23 @@ create.raster <- function(seed = 1234, ngr = 10){
 
 #' Create Year-Specific Site Data for Random Sample of Survey Sites
 #'
-#' @description
-#' Create site-level data object for sites to be surveyed conditional on year.
+#' @description Creates a site-level data object for sites to be surveyed conditional on year.
 #'
-#' @param year Numeric value for survey year.
-#' @param habcov Data.frame containing IDs, x-y coordinates, and habitat covariate values for all sites.
-#' @param nsites Number of sites to randomly select from all sites that will be surveyed.
+#' @param year numeric value for survey year
+#' @param habcov dataframe containing IDs, x-y coordinates, and habitat covariate values for all sites
+#' @param nsites numeric value indicating the number of sites to randomly select from all sites that will be surveyed
 #'
 #' @details Note: year is used to set the seed for random site selection process.
-#' @return A data.frame containing IDs, x-y coordinates, and habitat covariate values for selected survey sites.
+#' @return a dataframe containing IDs, x-y coordinates, and habitat covariate values for selected survey sites
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' rast <- create.rast()
 #' habcov <- data.frame(id = as.factor(1:ncell(rast)), rasterToPoints(rast))
 #' site.data <- create.site.data(year = 2020, habcov = habcov, nsites = 20)
 #' str(site.data)
+#' }
 #'
 
 create.site.data <- function(year, habcov, nsites){
@@ -68,15 +67,15 @@ create.site.data <- function(year, habcov, nsites){
 
 #' Simulate Species Occurrence and Observation Data
 #'
-#' @param year Numeric value for survey year.
-#' @param habcov Data.frame containing IDs, x-y coordinates, and habitat covariate values for all sites.
-#' @param site.data Data.frame containing site-level data for surveyed sites.
-#' @param nocc Number of survey occasions conducted per site.
-#' @param p Data.frame containing detection probabilities.
-#' @param observer.names Vector of character strings containing names of observers conducting surveys.
-#' @param vis.probs Vector of length 2 containing probability of "good" and "poor" visibility occurring any given survey.
-#' @param meanoccu Value between 0 and 1 used as intercept of linear model for species occurrence probability.
-#' @param beta1 Value used as slope coefficient for relationship between species occurrence probability and a habitat covariate.
+#' @param year numeric value for survey year
+#' @param habcov dataframe containing IDs, x-y coordinates, and habitat covariate values for all sites
+#' @param site.data dataframe containing site-level data for surveyed sites
+#' @param nocc numeric value indicating the number of survey occasions conducted per site
+#' @param p dataframe containing detection probabilities
+#' @param observer.names vector of character strings containing names of observers conducting surveys
+#' @param vis.probs vector of length 2 containing probability of "good" and "poor" visibility occurring any given survey
+#' @param meanoccu value between 0 and 1 used as intercept of linear model for species occurrence probability
+#' @param beta1 value used as slope coefficient for relationship between species occurrence probability and a habitat covariate
 #'
 #' @details Argument value for \code{p} should have 2 rows and 2 columns. Rows correspond to 2 levels of detection
 #' probability corresponding to "good" (row 1) and "poor" (row2) visibility. Column 1 contains
@@ -87,14 +86,16 @@ create.site.data <- function(year, habcov, nsites){
 #' simulation is transformed to the logit scale.
 #'
 #' Default value for \code{beta1} is 2 on the logit scale.
-#' @return Data.frame containing all simulated species occurrence and observation data.
+#' @return A dataframe containing all simulated species occurrence and observation data
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' nocc <- 5
 #' p <- data.frame(label = c("good","poor"), p = c(0.7,0.3))
 #' occu.data <- sim.occu.data(year = 2020, habcov = habcov, site.data = site.data, nocc = nocc, p = p)
 #' str(occu.data)
+#' }
 #'
 
 sim.occu.data <- function(year, habcov, site.data, nocc, p, observer.names = NULL, vis.probs = c(0.7, 0.3),
@@ -130,12 +131,12 @@ sim.occu.data <- function(year, habcov, site.data, nocc, p, observer.names = NUL
 
 #' Transform Occu.data Object to Survey123 Format
 #'
-#' @description Transforms a occu.data object to a data.frame that matches the format of data exported from Survey123.
-#' @param occu.data Data.frame containing species occurrence and observation data.
-#' @param year Numeric value for survey year.
+#' @description Transforms an \code{occu.data} object to a dataframe that matches the format of data exported from ESRI's Survey123
+#' @param occu.data dataframe containing species occurrence and observation data
+#' @param year numeric value for survey year
 #' @export
 #'
-#' @return A data.frame formatted the same as data exported from Survey123.
+#' @return A dataframe formatted the same as data exported from ESRI Survey123
 #'
 
 df2s123df <- function(occu.data, year){
@@ -180,20 +181,20 @@ df2s123df <- function(occu.data, year){
 
 #' Simulate, Format, and Save Survey Site and Observation Data
 #'
-#' @param year Numeric value for survey year.
-#' @param habcov Data.frame containing IDs, x-y coordinates, and habitat covariate values for all sites.
-#' @param nsites Number of sites to randomly select from all sites that will be surveyed.
-#' @param nocc Number of survey occasions conducted per site.
-#' @param p Data.frame containing detection probabilities.
-#' @param showcoords Logical value for whether to display coordinates for species location (TRUE)
-#' or site name (FALSE) as main title.
-#' @param cex Symbol size.
-#' @param ngood Number of symbols used under good visibility conditions.
-#' @param npoor Number of symbols used under poor visibility conditions.
-#' @param write.data Logical value specifying whether to save site and occurrence data sets to raw data folder.
-#' @param write.images Logical value specifying whether to save images for class exercise.
+#' @param year numeric value for survey year
+#' @param habcov dataframe containing IDs, x-y coordinates, and habitat covariate values for all sites
+#' @param nsites number of sites to randomly select from all sites that will be surveyed
+#' @param nocc number of survey occasions conducted per site
+#' @param p dataframe containing detection probabilities
+#' @param showcoords logical value for whether to display coordinates for species location (TRUE)
+#' or site name (FALSE) as main title
+#' @param cex symbol size
+#' @param ngood number of symbols used under good visibility conditions
+#' @param npoor number of symbols used under poor visibility conditions
+#' @param write.data logical value specifying whether to save site and occurrence data sets to raw data folder
+#' @param write.images logical value specifying whether to save images for class exercise
 #'
-#' @return List of length 3 containing site.data, occu.data, and s123.data.
+#' @return list of length 3 containing site.data, occu.data, and s123.data
 #' @export
 #'
 one.step <- function(year, habcov, nsites, nocc, p, showcoords, cex, ngood, npoor,
@@ -219,5 +220,3 @@ one.step <- function(year, habcov, nsites, nocc, p, showcoords, cex, ngood, npoo
     if(return.data)
     return(data.list = list(site.data = site.data, occu.data = occu.data, s123.data = s123.data))
 }
-
-

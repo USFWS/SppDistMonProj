@@ -1,11 +1,10 @@
 
-
 #' Plot Estimates and CIs of Linear Model Coefficients for Species Occurrence and Detection Probalities
 #'
 #' @param betas List of length equal to number of survey years.  Each element contains a ist of length 2
 #' containing estimates of model parameters for (1) occurrence probability and (2) detection probability
-#' @param years Numeric vector containing survey years.
-#' @param modranks Data.frame containing model rankings for all survey years.
+#' @param years numeric vector containing survey years
+#' @param modranks dataframe containing model rankings for all survey years
 #'
 #' @export
 
@@ -96,9 +95,9 @@ betas.plot <- function(betas, years, modranks){
 
 #' Plot Annual Estimated Proportions of Sites At Which Species Occurs
 #'
-#' @param PAO Data.frame containing posterior mean or median and upper and lower 95-percent confidence limits for all survey years.
-#' @param years Numeric vector containing survey years.
-#' @param modranks Data.frame containing model rankings for all survey years.
+#' @param PAO dataframe containing posterior mean or median and upper and lower 95-percent confidence limits for all survey years
+#' @param years numeric vector containing survey years
+#' @param modranks dataframe containing model rankings for all survey years
 #'
 #' @export
 
@@ -125,8 +124,8 @@ pao.plot <- function(PAO, years, modranks){
 
 #' Plot Predicted Values for Probability of Species Occurrence and Detection
 #'
-#' @param predvals List of length 2 containing predicted values for probability of species
-#' occurrence and probability of detection.
+#' @param predvals list of length 2 containing predicted values for probability of species
+#' occurrence and probability of detection
 #'
 #' @export
 #'
@@ -173,6 +172,7 @@ predvals.plot <- function(predvals){
 #' @param site character string specifiying site name
 #'
 #' @return No value is returned. Files are written to user-specified folder location.
+#'
 #' @export
 
 trial.plot <- function(good, z, path = NULL, fname = NULL, seed, color = NULL,

@@ -2,16 +2,15 @@
 
 #' Create Plots of Annual Estimates of Species Occurrence and Detection Probability and LaTeX Code for Analysis Report
 #'
-#' @param Epsi Data.frame containing estimated values for occurrence probabilities, SE,
-#' upper & lower CLs, and corresponding habitat covariate values.
-#' @param Ep Data.frame containing estimated values for detection probabilities, SE,
-#' upper & lower CLs, and corresponding visibility covariate values.
-#' @param year Numeric value for survey year.
-#' @param figdir.path Directory path for temporary storage of report figures.
-#'
-#' @description
 #' Estimates are based on top-ranked model and are conditional on estimated
 #' relationships between model parameters and covariates when applicable.
+#'
+#' @param Epsi dataframe containing estimated values for occurrence probabilities, SE,
+#' upper & lower CLs, and corresponding habitat covariate values
+#' @param Ep dataframe containing estimated values for detection probabilities, SE,
+#' upper & lower CLs, and corresponding visibility covariate values
+#' @param year numeric value for survey year
+#' @param figdir.path directory path for temporary storage of report figures
 #'
 #' @return List of length equal to number of survey years processed. Each element is contains a NULL value.
 #' @export
@@ -36,8 +35,8 @@ annual.estimates <- function(Epsi, Ep, year, figdir.path){
 
 #' Create Model Selection and Parameter Estimate Tables and LaTeX Code for Analysis Report
 #'
-#' @param modsel.table Data.frame containing model output from \code{unmarked}
-#' @param year Numeric value for survey year.
+#' @param modsel.table dataframe containing model output from \code{unmarked}
+#' @param year numeric value for survey year
 #'
 #' @return List of length equal to number of survey years processed. Each element is contains a NULL value.
 #' @export
@@ -70,11 +69,11 @@ annual.tables <- function(modsel.table, year){
 
 #' Calculate Estimated Proportion of Sites At Which Species Occurs
 #'
-#' @param topmod Object of class \code{unmarkedFitOccu} for single-species occupancy model.
-#' @param stat Statistic (\code{mean} or \code{median}) used to summarize posterior distribution.
-#' @param n Number of sites surveyed.
+#' @param topmod object of class \code{unmarkedFitOccu} for single-species occupancy model
+#' @param stat statistic (\code{mean} or \code{median}) used to summarize posterior distribution
+#' @param n number of sites surveyed
 #'
-#' @return Vector containing posterior mean or median and upper and lower 95% confidence limits.
+#' @return vector containing posterior mean or median and upper and lower 95% confidence limits
 #' @export
 
 calc.pao <- function(topmod, stat = "mode", n){
@@ -91,9 +90,9 @@ calc.pao <- function(topmod, stat = "mode", n){
 
 #' Extract Estimates of Model Beta Parameters
 #'
-#' @param mod Object of class \code{unmarkedFitOccu} for single-species occupancy model.
+#' @param mod object of class \code{unmarkedFitOccu} for single-species occupancy model
 #'
-#' @return List of length 2 containing estimates of model parameters for
+#' @return list of length 2 containing estimates of model parameters for
 #' (1) occurrence probability and (2) detection probability
 #'
 #' @export
@@ -115,10 +114,10 @@ get.betas <- function(mod){
 
 #' Extract \code{unmarkedFitOccu} Object for Top Ranked Model
 #'
-#' @param x1 Year-specific \code{unmarkedFitList} object containing individual results for each model in a priori model set.
-#' @param x2 Year-specific vector containing model rankings.
+#' @param x1 year-specific \code{unmarkedFitList} object containing individual results for each model in a priori model set
+#' @param x2 year-specific vector containing model rankings
 #'
-#' @return Object of class \code{unmarkedFitOccu}
+#' @return object of class \code{unmarkedFitOccu}
 #' @export
 
 get.topmod <- function(x1, x2){slot(x1, "fits")[[which(x2==1)]]}

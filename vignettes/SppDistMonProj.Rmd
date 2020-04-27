@@ -1,7 +1,5 @@
 ---
-title: "How to use the SppDisMonProj package"
-author: Jared Laufenberg, McCrea Cobb
-date: "`r Sys.Date()`"
+title: "Instructor Guide"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{SppDistMonProj}
@@ -9,9 +7,14 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-## Purpose
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 
-Here's where a description of the purpose of the package will go.
+This vignette provides an introduction of the SppDistMonProj R package for a course instructor. It provides step-by-step instructions on how to use the package to teach applied data management concepts.
 
 ## Getting Started
 
