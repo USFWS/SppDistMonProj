@@ -11,6 +11,7 @@ devtools::install_github("USFWS/SppDistMonProj")
 
 ## Contact
 Jared Laufenberg <jared_laufenberg@fws.gov>
+McCrea Cobb <mccrea_cobb@fws.gov>
 
 ## License
 The United States Fish and Wildlife Service (FWS) GitHub project code is provided on 
