@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/USFWS/SppDisMonProj?branch=master)](https://travis-ci.org/USFWS/SppDisMonProj)
+
 # SppDistMonProj
 An R package (in development) used for data workflow training delivered by the FWS Inventory and Monitoring Program, Alaska Region.
 
