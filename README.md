@@ -3,7 +3,7 @@
 # SppDistMonProj
 An R package (in development) used for data workflow training delivered by the FWS Inventory and Monitoring Program, Alaska Region.
 
-## Installation instructions
+## Instructions
 ```
 if (!require(devtools)) install.packages("devtools")
 devtools::install_github("USFWS/SppDistMonProj")
@@ -12,7 +12,7 @@ devtools::install_github("USFWS/SppDistMonProj")
 ## Contact
 Jared Laufenberg <jared_laufenberg@fws.gov>
 
-_____________________________
+## License
 The United States Fish and Wildlife Service (FWS) GitHub project code is provided on 
 an "as is" basis and the user assumes responsibility for its use. FWS has relinquished 
 control of the information and no longer has responsibility to protect the integrity, 
