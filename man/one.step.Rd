@@ -2,7 +2,7 @@
 % Please edit documentation in R/simulation_functions.R
 \name{one.step}
 \alias{one.step}
-\title{Simulate, Format, and Save Survey Site and Observation Data}
+\title{Simulate, format, and save survey site and observation data}
 \usage{
 one.step(
   year,
@@ -47,5 +47,5 @@ or site name (FALSE) as main title}
 list of length 3 containing site.data, occu.data, and s123.data
 }
 \description{
-Simulate, Format, and Save Survey Site and Observation Data
+Simulate, format, and save survey site and observation data
 }

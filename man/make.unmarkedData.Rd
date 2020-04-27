@@ -2,7 +2,7 @@
 % Please edit documentation in R/qc_functions.R
 \name{make.unmarkedData}
 \alias{make.unmarkedData}
-\title{Create Formatted Data Object for Analysis Using unmarked Package}
+\title{Create formatted data object for analysis using \code{unmarked} package}
 \usage{
 make.unmarkedData(sitedf, occudf, year)
 }
@@ -17,5 +17,5 @@ make.unmarkedData(sitedf, occudf, year)
 Object of class \code{unamrkedFrameOccu}
 }
 \description{
-Create Formatted Data Object for Analysis Using unmarked Package
+Create formatted data object for analysis using \code{unmarked} package
 }

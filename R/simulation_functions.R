@@ -1,6 +1,6 @@
 
 
-#' Create Spatial Raster Object Containing Simulated Habitat Covariate Values
+#' Create spatial raster object containing simulated habitat covariate values
 #'
 #' Creates spatial raster object for a spatially correlated habitat covariate used to simulate species occurrence
 #'
@@ -34,7 +34,7 @@ create.raster <- function(seed = 1234, ngr = 10){
 #### ------------------------------------------------------------------
 
 
-#' Create Year-Specific Site Data for Random Sample of Survey Sites
+#' Create year-specific site data for random sample of survey sites
 #'
 #' @description Creates a site-level data object for sites to be surveyed conditional on year.
 #'
@@ -65,7 +65,7 @@ create.site.data <- function(year, habcov, nsites){
 #### ------------------------------------------------------------------
 
 
-#' Simulate Species Occurrence and Observation Data
+#' Simulate species occurrence and observation data
 #'
 #' @param year numeric value for survey year
 #' @param habcov dataframe containing IDs, x-y coordinates, and habitat covariate values for all sites
@@ -129,7 +129,7 @@ sim.occu.data <- function(year, habcov, site.data, nocc, p, observer.names = NUL
 #### ------------------------------------------------------------------
 
 
-#' Transform Occu.data Object to Survey123 Format
+#' Transform \code{occu.data} object to Survey123 format
 #'
 #' @description Transforms an \code{occu.data} object to a dataframe that matches the format of data exported from ESRI's Survey123
 #' @param occu.data dataframe containing species occurrence and observation data
@@ -179,7 +179,7 @@ df2s123df <- function(occu.data, year){
 #### ------------------------------------------------------------------
 
 
-#' Simulate, Format, and Save Survey Site and Observation Data
+#' Simulate, format, and save survey site and observation data
 #'
 #' @param year numeric value for survey year
 #' @param habcov dataframe containing IDs, x-y coordinates, and habitat covariate values for all sites

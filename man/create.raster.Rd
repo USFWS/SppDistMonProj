@@ -2,7 +2,7 @@
 % Please edit documentation in R/simulation_functions.R
 \name{create.raster}
 \alias{create.raster}
-\title{Create Spatial Raster Object Containing Simulated Habitat Covariate Values}
+\title{Create spatial raster object containing simulated habitat covariate values}
 \usage{
 create.raster(seed = 1234, ngr = 10)
 }

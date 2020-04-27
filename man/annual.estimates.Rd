@@ -2,7 +2,7 @@
 % Please edit documentation in R/analysis_functions.R
 \name{annual.estimates}
 \alias{annual.estimates}
-\title{Create Plots of Annual Estimates of Species Occurrence and Detection Probability and LaTeX Code for Analysis Report}
+\title{Create plots of annual estimates of species occurrence and detection probability and LaTeX code for analysis report}
 \usage{
 annual.estimates(Epsi, Ep, year, figdir.path)
 }

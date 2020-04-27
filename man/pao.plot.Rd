@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_functions.R
 \name{pao.plot}
 \alias{pao.plot}
-\title{Plot Annual Estimated Proportions of Sites At Which Species Occurs}
+\title{Plot annual estimated proportions of sites at which a species occurs}
 \usage{
 pao.plot(PAO, years, modranks)
 }
@@ -14,5 +14,5 @@ pao.plot(PAO, years, modranks)
 \item{modranks}{dataframe containing model rankings for all survey years}
 }
 \description{
-Plot Annual Estimated Proportions of Sites At Which Species Occurs
+Plot annual estimated proportions of sites at which a species occurs
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/analysis_functions.R
 \name{get.topmod}
 \alias{get.topmod}
-\title{Extract \code{unmarkedFitOccu} Object for Top Ranked Model}
+\title{Extract \code{unmarkedFitOccu} object for top ranked model}
 \usage{
 get.topmod(x1, x2)
 }
@@ -15,5 +15,5 @@ get.topmod(x1, x2)
 object of class \code{unmarkedFitOccu}
 }
 \description{
-Extract \code{unmarkedFitOccu} Object for Top Ranked Model
+Extract \code{unmarkedFitOccu} object for top ranked model
 }

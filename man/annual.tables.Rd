@@ -2,7 +2,7 @@
 % Please edit documentation in R/analysis_functions.R
 \name{annual.tables}
 \alias{annual.tables}
-\title{Create Model Selection and Parameter Estimate Tables and LaTeX Code for Analysis Report}
+\title{Create model selection and parameter estimate tables and LaTeX code for analysis report}
 \usage{
 annual.tables(modsel.table, year)
 }
@@ -15,5 +15,5 @@ annual.tables(modsel.table, year)
 List of length equal to number of survey years processed. Each element is contains a NULL value.
 }
 \description{
-Create Model Selection and Parameter Estimate Tables and LaTeX Code for Analysis Report
+Create model selection and parameter estimate tables and LaTeX code for analysis report
 }

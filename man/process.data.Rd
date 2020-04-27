@@ -2,7 +2,7 @@
 % Please edit documentation in R/qc_functions.R
 \name{process.data}
 \alias{process.data}
-\title{Process Raw Occurrence and Site-Level Data for Analysis}
+\title{Process raw occurrence and site-level data for analysis}
 \usage{
 process.data(occudfs, sitedfs, years, habcov)
 }
@@ -22,5 +22,5 @@ year-specific site-level data.frames, 5) list of year-specific numeric vectors c
 and 6) object of class RasterLayer containing a spatial covariate.
 }
 \description{
-Process Raw Occurrence and Site-Level Data for Analysis
+Process raw occurrence and site-level data for analysis
 }

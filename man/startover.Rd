@@ -2,10 +2,10 @@
 % Please edit documentation in R/misc_functions.R
 \name{startover}
 \alias{startover}
-\title{Delete All Raw and Derived Data and Products}
+\title{Delete all raw and derived data and products}
 \usage{
 startover()
 }
 \description{
-Delete All Raw and Derived Data and Products
+Delete all raw and derived data and products
 }

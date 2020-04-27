@@ -2,7 +2,7 @@
 % Please edit documentation in R/simulation_functions.R
 \name{df2s123df}
 \alias{df2s123df}
-\title{Transform Occu.data Object to Survey123 Format}
+\title{Transform \code{occu.data} object to Survey123 format}
 \usage{
 df2s123df(occu.data, year)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/qc_functions.R
 \name{naive.occu}
 \alias{naive.occu}
-\title{Calculate Naive Species Occurrence for Surveyed Sites}
+\title{Calculate naive species occurrence for surveyed sites}
 \usage{
 naive.occu(x)
 }
@@ -13,5 +13,5 @@ naive.occu(x)
 vector containing values of 0 or 1 for each surveyed site indicating whether the species was observed (1) or unobserved (0)
 }
 \description{
-Calculate Naive Species Occurrence for Surveyed Sites
+Calculate naive species occurrence for surveyed sites
 }

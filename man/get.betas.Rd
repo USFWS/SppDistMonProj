@@ -2,7 +2,7 @@
 % Please edit documentation in R/analysis_functions.R
 \name{get.betas}
 \alias{get.betas}
-\title{Extract Estimates of Model Beta Parameters}
+\title{Extract estimates of model beta parameters}
 \usage{
 get.betas(mod)
 }
@@ -14,5 +14,5 @@ list of length 2 containing estimates of model parameters for
 (1) occurrence probability and (2) detection probability
 }
 \description{
-Extract Estimates of Model Beta Parameters
+Extract estimates of model beta parameters
 }

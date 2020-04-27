@@ -11,8 +11,13 @@ example survey project.
 }
 \section{Simulation functions}{
 
-The simulation functions include \code{create.raster}, \code{create.site.data},
-\code{sim.occu.data}, \code{df2s123df}, and \code{one.step}.
+\itemize{
+ \item{\code{create.raster}}
+ \item{\code{create.site.data}}
+ \item{\code{sim.occu.data}}
+ \item{\code{df2s123df}}
+ \item{\code{one.step}}
+ }
 }
 
 \section{Quality control (QC) functions}{

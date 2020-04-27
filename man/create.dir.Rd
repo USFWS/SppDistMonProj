@@ -2,7 +2,7 @@
 % Please edit documentation in R/misc_functions.R
 \name{create.dir}
 \alias{create.dir}
-\title{Create a File Directory for a New Refuge I&M Project}
+\title{Create a file directory for a new refuge I&M project}
 \usage{
 create.dir(proj.name = NULL, dir.name = NULL, moreFolders = NULL)
 }

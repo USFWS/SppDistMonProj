@@ -2,7 +2,7 @@
 % Please edit documentation in R/simulation_functions.R
 \name{sim.occu.data}
 \alias{sim.occu.data}
-\title{Simulate Species Occurrence and Observation Data}
+\title{Simulate species occurrence and observation data}
 \usage{
 sim.occu.data(
   year,
@@ -39,7 +39,7 @@ sim.occu.data(
 A dataframe containing all simulated species occurrence and observation data
 }
 \description{
-Simulate Species Occurrence and Observation Data
+Simulate species occurrence and observation data
 }
 \details{
 Argument value for \code{p} should have 2 rows and 2 columns. Rows correspond to 2 levels of detection

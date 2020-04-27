@@ -2,7 +2,7 @@
 % Please edit documentation in R/analysis_functions.R
 \name{calc.pao}
 \alias{calc.pao}
-\title{Calculate Estimated Proportion of Sites At Which Species Occurs}
+\title{Calculate estimated proportion of sites at which a species occurs}
 \usage{
 calc.pao(topmod, stat = "mode", n)
 }
@@ -17,5 +17,5 @@ calc.pao(topmod, stat = "mode", n)
 vector containing posterior mean or median and upper and lower 95% confidence limits
 }
 \description{
-Calculate Estimated Proportion of Sites At Which Species Occurs
+Calculate estimated proportion of sites at which a species occurs
 }

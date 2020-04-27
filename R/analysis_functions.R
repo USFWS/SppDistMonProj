@@ -1,6 +1,6 @@
 
 
-#' Create Plots of Annual Estimates of Species Occurrence and Detection Probability and LaTeX Code for Analysis Report
+#' Create plots of annual estimates of species occurrence and detection probability and LaTeX code for analysis report
 #'
 #' Estimates are based on top-ranked model and are conditional on estimated
 #' relationships between model parameters and covariates when applicable.
@@ -33,7 +33,7 @@ annual.estimates <- function(Epsi, Ep, year, figdir.path){
 #### ------------------------------------------------------------------
 
 
-#' Create Model Selection and Parameter Estimate Tables and LaTeX Code for Analysis Report
+#' Create model selection and parameter estimate tables and LaTeX code for analysis report
 #'
 #' @param modsel.table dataframe containing model output from \code{unmarked}
 #' @param year numeric value for survey year
@@ -67,7 +67,7 @@ annual.tables <- function(modsel.table, year){
 #### ------------------------------------------------------------------
 
 
-#' Calculate Estimated Proportion of Sites At Which Species Occurs
+#' Calculate estimated proportion of sites at which a species occurs
 #'
 #' @param topmod object of class \code{unmarkedFitOccu} for single-species occupancy model
 #' @param stat statistic (\code{mean} or \code{median}) used to summarize posterior distribution
@@ -88,7 +88,7 @@ calc.pao <- function(topmod, stat = "mode", n){
 #### ------------------------------------------------------------------
 
 
-#' Extract Estimates of Model Beta Parameters
+#' Extract estimates of model beta parameters
 #'
 #' @param mod object of class \code{unmarkedFitOccu} for single-species occupancy model
 #'
@@ -112,7 +112,7 @@ get.betas <- function(mod){
 #### ------------------------------------------------------------------
 
 
-#' Extract \code{unmarkedFitOccu} Object for Top Ranked Model
+#' Extract \code{unmarkedFitOccu} object for top ranked model
 #'
 #' @param x1 year-specific \code{unmarkedFitList} object containing individual results for each model in a priori model set
 #' @param x2 year-specific vector containing model rankings

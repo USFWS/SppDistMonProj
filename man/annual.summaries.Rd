@@ -2,7 +2,7 @@
 % Please edit documentation in R/qc_functions.R
 \name{annual.summaries}
 \alias{annual.summaries}
-\title{Create Year-Specific Summary Table and Figures and LaTeX Code for QC Report}
+\title{Create year-specific summary table and figures and LaTeX code for QC report}
 \usage{
 annual.summaries(occu, site, year, unmkd, naiveoccu, habcov, figdir.path)
 }
@@ -26,5 +26,5 @@ the species was observed (1) or unobserved (0)}
 List of length equal to number of survey years processed. Each element is contains a NULL value.
 }
 \description{
-Create Year-Specific Summary Table and Figures and LaTeX Code for QC Report
+Create year-specific summary table and figures and LaTeX code for QC report
 }

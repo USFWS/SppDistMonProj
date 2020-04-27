@@ -1,6 +1,6 @@
 
 
-#' Create a File Directory for a New Refuge I&M Project
+#' Create a file directory for a new refuge I&M project
 #'
 #' @description A function to create a new file directory structure. The directory structure is based off the Alaska I&M biometric project directory template.
 #'
@@ -67,7 +67,7 @@ create.dir <- function(proj.name = NULL, dir.name = NULL, moreFolders = NULL) {
 #### ------------------------------------------------------------------
 
 
-#' Delete All Raw and Derived Data and Products
+#' Delete all raw and derived data and products
 #'
 #' @export
 #'

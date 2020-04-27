@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_functions.R
 \name{betas.plot}
 \alias{betas.plot}
-\title{Plot Estimates and CIs of Linear Model Coefficients for Species Occurrence and Detection Probalities}
+\title{Plot estimates and CIs of linear model coefficients for species occurrence and detection probalities}
 \usage{
 betas.plot(betas, years, modranks)
 }
@@ -15,5 +15,5 @@ containing estimates of model parameters for (1) occurrence probability and (2) 
 \item{modranks}{dataframe containing model rankings for all survey years}
 }
 \description{
-Plot Estimates and CIs of Linear Model Coefficients for Species Occurrence and Detection Probalities
+Plot estimates and CIs of linear model coefficients for species occurrence and detection probalities
 }

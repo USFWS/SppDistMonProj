@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_functions.R
 \name{predvals.plot}
 \alias{predvals.plot}
-\title{Plot Predicted Values for Probability of Species Occurrence and Detection}
+\title{Plot predicted values for probability of species occurrence and detection}
 \usage{
 predvals.plot(predvals)
 }
@@ -11,5 +11,5 @@ predvals.plot(predvals)
 occurrence and probability of detection}
 }
 \description{
-Plot Predicted Values for Probability of Species Occurrence and Detection
+Plot predicted values for probability of species occurrence and detection
 }

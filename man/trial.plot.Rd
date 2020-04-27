@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_functions.R
 \name{trial.plot}
 \alias{trial.plot}
-\title{Plot and Save Images for Class Exercise Using Survey123}
+\title{Plot and save images for class exercise using Survey123}
 \usage{
 trial.plot(
   good,
@@ -46,5 +46,5 @@ or site name (FALSE) as main title}
 No value is returned. Files are written to user-specified folder location.
 }
 \description{
-Plot and Save Images for Class Exercise Using Survey123
+Plot and save images for class exercise using Survey123
 }

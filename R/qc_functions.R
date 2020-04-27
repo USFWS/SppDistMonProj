@@ -1,6 +1,6 @@
 
 
-#' Create Year-Specific Summary Table and Figures and LaTeX Code for QC Report
+#' Create year-specific summary table and figures and LaTeX code for QC report
 #'
 #' @param year numeric value for survey year
 #' @param naiveoccu vector containing values of 0 or 1 for each surveyed site indicating whether
@@ -103,7 +103,7 @@ annual.summaries <- function(occu, site, year, unmkd, naiveoccu, habcov, figdir.
 #### ------------------------------------------------------------------
 
 
-#' Extract Year From Data File Name
+#' Extract year From data file name
 #'
 #' @param filename full file path to data file
 #'
@@ -120,7 +120,7 @@ extract.year <- function(filename){
 #### ------------------------------------------------------------------
 
 
-#' Calculate Naive Species Occurrence for Surveyed Sites
+#' Calculate naive species occurrence for surveyed sites
 #'
 #' @param x list of processed data objects created using the \code{process.data} function
 #'
@@ -137,7 +137,7 @@ naive.occu <- function(x){
 #### ------------------------------------------------------------------
 
 
-#' Create Formatted Data Object for Analysis Using unmarked Package
+#' Create formatted data object for analysis using \code{unmarked} package
 #'
 #' @param sitedf dataframe containing raw site-level data
 #' @param occudf dataframe containing raw species occurrence data
@@ -170,7 +170,7 @@ make.unmarkedData <- function(sitedf, occudf, year){
 #### ------------------------------------------------------------------
 
 
-#' Process Raw Occurrence and Site-Level Data for Analysis
+#' Process raw occurrence and site-level data for analysis
 #'
 #' @param occudfs list of dataframes containing annual raw species occurrence data
 #' @param sitedfs list of dataframes containing annual raw site-level data

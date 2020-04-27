@@ -2,7 +2,7 @@
 % Please edit documentation in R/simulation_functions.R
 \name{create.site.data}
 \alias{create.site.data}
-\title{Create Year-Specific Site Data for Random Sample of Survey Sites}
+\title{Create year-specific site data for random sample of survey sites}
 \usage{
 create.site.data(year, habcov, nsites)
 }

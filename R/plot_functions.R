@@ -1,5 +1,5 @@
 
-#' Plot Estimates and CIs of Linear Model Coefficients for Species Occurrence and Detection Probalities
+#' Plot estimates and CIs of linear model coefficients for species occurrence and detection probalities
 #'
 #' @param betas List of length equal to number of survey years.  Each element contains a ist of length 2
 #' containing estimates of model parameters for (1) occurrence probability and (2) detection probability
@@ -93,7 +93,7 @@ betas.plot <- function(betas, years, modranks){
 #### ------------------------------------------------------------------
 
 
-#' Plot Annual Estimated Proportions of Sites At Which Species Occurs
+#' Plot annual estimated proportions of sites at which a species occurs
 #'
 #' @param PAO dataframe containing posterior mean or median and upper and lower 95-percent confidence limits for all survey years
 #' @param years numeric vector containing survey years
@@ -122,7 +122,7 @@ pao.plot <- function(PAO, years, modranks){
 #### ------------------------------------------------------------------
 
 
-#' Plot Predicted Values for Probability of Species Occurrence and Detection
+#' Plot predicted values for probability of species occurrence and detection
 #'
 #' @param predvals list of length 2 containing predicted values for probability of species
 #' occurrence and probability of detection
@@ -156,7 +156,7 @@ predvals.plot <- function(predvals){
 #### ------------------------------------------------------------------
 
 
-#' Plot and Save Images for Class Exercise Using Survey123
+#' Plot and save images for class exercise using Survey123
 #'
 #' @param good logical value for whether visibility condition is good (TRUE) or poor (FALSE)
 #' @param z indicator variable for whether site truly is occupied (1) or unoccupied (0)
