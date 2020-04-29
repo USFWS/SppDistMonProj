@@ -103,7 +103,7 @@ annual.summaries <- function(occu, site, year, unmkd, naiveoccu, habcov, figdir.
 #### ------------------------------------------------------------------
 
 
-#' Extract year From data file name
+#' Extract year from data file name
 #'
 #' @param filename full file path to data file
 #'

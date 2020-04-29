@@ -2,7 +2,7 @@
 % Please edit documentation in R/qc_functions.R
 \name{extract.year}
 \alias{extract.year}
-\title{Extract year From data file name}
+\title{Extract year from data file name}
 \usage{
 extract.year(filename)
 }
@@ -13,5 +13,5 @@ extract.year(filename)
 character string
 }
 \description{
-Extract year From data file name
+Extract year from data file name
 }
