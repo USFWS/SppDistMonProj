@@ -1,5 +1,5 @@
 ---
-title: "A guide for instructors"
+title: "A Guide for Instructors"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{SppDistMonProj}
@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-Te SppDistMonProj package was developed to be used as an aid for teaching data management and workflow concepting using R. This vignette provides an introduction of the SppDistMonProj R package for a course instructor. It provides step-by-step instructions on how to use the package to teach applied data management concepts.
+Te SppDistMonProj package was developed to be used as an aid for teaching data management and workflow concepts using R. This vignette provides an introduction of the SppDistMonProj R package for a course instructor. It provides step-by-step instructions on how to use the package to teach applied data management concepts.
 
 ## The Example Survey
 
