@@ -15,7 +15,8 @@ Imports:
     raster,
     knitr,
     xtable,
-    unmarked
+    unmarked,
+    rmarkdown,
+    knitr
 VignetteBuilder: knitr
-Suggests: 
-    rmarkdown
+Suggests:
