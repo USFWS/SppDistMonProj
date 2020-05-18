@@ -19,7 +19,7 @@
 
 # https://github.com/boxuancui/DataExplorer/blob/master/inst/rmd_template/report.rmd
 
-analysis.report <- function(data,
+analysis.report <- function(data = system.file("data", "data.RData", package = "SppDistMonProj"),
                             year = 2019,
                             author = "Cliff Clavin",
                             email = "cliff@fws.gov",
@@ -41,11 +41,12 @@ analysis.report <- function(data,
     output_file = output_file,
     output_dir = output_dir,
     intermediates_dir = output_dir,
-    params = list(data = data,
-                  year = year,
-                  author = author,
-                  email = email,
-                  phone = phone),
+    params = "ask",
+      # list(data = data,
+      #             year = year,
+      #             author = author,
+      #             email = email,
+      #             phone = phone),
     # set_title = report_title),  # For flexible title
     ...
   ))
