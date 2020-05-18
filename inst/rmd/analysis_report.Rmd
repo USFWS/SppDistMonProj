@@ -43,6 +43,7 @@ library(rmarkdown)
 
 knitr::opts_chunk$set(echo = FALSE, results = "asis", warning = TRUE)
 
+dir.create("figure")
 figdir.path <- "./figure/"
 
 # Get user parameters
@@ -161,7 +162,7 @@ This section contains year-specific estimates ...
 
 ```{r, echo=FALSE, results="asis", message=FALSE, warning=FALSE, error=FALSE}
 
-#dummy <- mapply(annual.estimates, Epsi, Ep, years, MoreArgs = list(figdir.path = figdir.path), #SIMPLIFY = FALSE)
+dummy <- mapply(annual.estimates, Epsi, Ep, years, MoreArgs = list(figdir.path = figdir.path), SIMPLIFY = FALSE)
 ```
 
 \elandscape
