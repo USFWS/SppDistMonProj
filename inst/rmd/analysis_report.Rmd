@@ -2,7 +2,13 @@
 params:
   author: 
     label: "Report author:"
-    value: "Cliff Calvin"
+    value: "Cliff Clavin"
+  email: 
+    label: "Author's email address:"
+    value: "cliff_clavin@fws.gov"
+  phone:
+    label: "Author's phone #:"
+    value: "555-867-5309"
   year: 
     label: "Report year:"
     value: 2019
@@ -11,12 +17,12 @@ params:
     value: 
     input: file
 author: |
-  | "`r params$author`"
+  | `r params$author`
   | Cheers National Wildlife Refuge
   | National Wildlife Refuge System, Boston Region
   | U.S. Fish and Wildlife Service
-  | cliff_clavin@fws.gov
-  | 555-867-5309
+  | `r params$email`
+  | `r params$phone`
 date: "`r Sys.Date()`"
 output: 
   bookdown::pdf_document2:
