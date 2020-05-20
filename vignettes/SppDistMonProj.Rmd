@@ -1,30 +1,456 @@
 ---
-title: "A guide for instructors"
-output: rmarkdown::html_vignette
+title: "A Guide for Instructors"
+output:
+    bookdown::html_document2:
+      base_format: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{SppDistMonProj}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{bookdown}
   %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  eval = FALSE
 )
 ```
 
-Te SppDistMonProj package was developed to be used as an aid for teaching data management and workflow concepting using R. This vignette provides an introduction of the SppDistMonProj R package for a course instructor. It provides step-by-step instructions on how to use the package to teach applied data management concepts.
+The SppDistMonProj package was developed to be used as an aid for teaching data management and workflow concepts using R. This vignette provides an introduction of the SppDistMonProj R package for a course instructor. It provides step-by-step instructions on how to use the package to teach applied data management concepts.
 
-## The Example Survey
-
-This package uses a mock survey to show how R can be used to develop a data workflow that includes many steps of a data life cycle including importing, processing, analyzing and reporting on data. The objective of the mock survey is to estimate the occupancy of a species within a sampling frame. Occupancy is a function of environmental covariates. To do this, package functions simulate the spatial distribution of environmental covariates in the sampling frame. Based on the distribution of these covariates, a package function simulates the distribution of the target species of interest.   
 
 ## Overview
 
-The first step is to introduce a basic approach for developing scripts in R to import, process, analyze and report on data. 
+### The Example Survey
 
-Here's where instructions on how to use the package will go.
+This package uses a simulated survey of species occurrence to demonstate how R can be used to develop a data workflow that includes many steps of a data life cycle including importing, processing, analyzing and reporting on data. The objective of the survey is to estimate the occupancy of a hypothetical species within a define square sampling frame (a "refuge"). Occupancy is a function of environmental covariates. To do this, package functions simulate the spatial distribution of environmental covariates in the sampling frame. Based on the distribution of these covariates, a package function simulates the distribution of the target species of interest. Sampling data can then either be simulated or generated as an in-class exercise using ArcGIS Survey123. These data are summarized in a quality control RMarkdown report and in an analysis Rmarkdown report.   
+
+### Using SppDistMonProj for Teaching
+
+The first step is generate data, either through simulation (detailed in [Simulating data][Simulating data]) or by having the student "collect" data using an iPad configured with a customized ArcGIS Survey123 app.  Next, the instructor introduces students to a basic data workflow in R that starts with developing scripts to import, process, analyze and report on data, bundling these scripts into customized functions, and finally assembling and documenting these customized functions in an R package. 
+
+
+## Step 1: Acquiring data
+
+### Option A. Simulating data
+
+If you do not have any data in hand, the first step is to generate some data through simulation. `SppDistMonProj::create.raster()` generates a raster (.asc) of covariate values.  `SppDistMonProj::one.step()` simulates, formats and saves survey site `site.data` and observation data `occu.data`. Observation data are outputted as `unmarked::occu.data` formatted dataframes and as raw data output would be generated from ArcGIS Survey123 app (`s123.data`). The following scripts show the steps needed to create these datasets.
+
+```{r, message=FALSE}
+# Load required package
+library(raster)
+library(SppDistMonProj)
+```
+
+Create a project directory
+```{r}
+SppDistMonProj::create.dir(proj.name = "course_survey")
+```
+
+Create and save a raster of habitat covariates
+
+```{r}
+make.rast <- TRUE  # Set as true for the first time running
+
+# Create spatial covariate values for sites (i.e., raster cells)
+if(make.rast){
+    rast <- create.raster()
+    habcov <- data.frame(id = as.factor(1:ncell(rast)), 
+                         rasterToPoints(rast))
+    
+    # Save RasterLayer as ESRI ascii format
+    writeRaster(rast, 
+                file = "./resources/data/geodata/habcov.asc", 
+                format = "ascii", 
+                overwrite = TRUE)
+} else {
+    rast <- raster("./resources/data/geodata/habcov.asc")
+    habcov <- data.frame(id = as.factor(1:ncell(rast)), 
+                         rasterToPoints(rast))
+}
+```
+
+
+Simulate, format and save a list of survey site and observation data
+```{r, eval=FALSE}
+## Set simulation parameters
+years <- 2011:2019
+nsites <- 20
+nocc <- 5
+p <- data.frame(label = c("good","poor"), p = c(0.7,0.3))
+write.data <- TRUE
+write.images <- FALSE
+return.data <- TRUE
+ngood <- 350
+npoor <- 500
+cex <- 1.75
+showcoords <- FALSE
+
+# Simulate, format and save a list of survey site and observation data for as many 
+# years as specified above (9 years in this example)
+data.list <- mapply(one.step, year = years,
+                    MoreArgs = list(habcov = habcov, 
+                                    nsites = nsites, 
+                                    nocc = nocc, 
+                                    p = p, 
+                                    write.data = write.data,
+                                    write.images = write.images, 
+                                    ngood = ngood, 
+                                    npoor = npoor,
+                                    cex = 1.75, 
+                                    showcoords = showcoords, 
+                                    return.data = return.data),
+                    SIMPLIFY = FALSE)
+```
+
+### Option B. Collecting data using ArcGIS Survey123
+
+A second option is to have students collect "data" as an in-class exercise using ArcGIS Survey123. The example Survey123 project is located [here](). Contact [Jared Laufenberg](mailto:jared_laufenberg@fws.gov) for access.
+
+Need content here
+
+
+### Annual sample site selection
+
+```{r}
+# Load packages
+library(raster)
+```
+
+```{r}
+# Load spatial data
+habcov.raster <- raster("./resources/data/geodata/habcov.asc")
+ncells <- nrow(habcov.raster) * ncol(habcov.raster)
+habcov <- data.frame(id = as.factor(1:ncells), rasterToPoints(habcov.raster))
+```
+
+```{r}
+# Randomly select sites to be surveyed in specified year
+year <- 2020
+nsites <- 20
+set.seed(year) # ensures same sample drawn each time code is run for a given year
+surveysites.i <- habcov[sample(1:ncells, nsites),]
+```
+
+```{r}
+# Randomly select sites to be surveyed in specified year
+year <- 2020
+nsites <- 20
+set.seed(year) # ensures same sample drawn each time code is run for a given year
+surveysites.i <- habcov[sample(1:ncells, nsites),]
+```
+
+```{r}
+# Plot survey sites
+plot(habcov.raster, xlab = "X", ylab = "Y", asp = 1, main = "Blue crosses = selected sites")
+points(surveysites.i$x, surveysites.i$y, pch = "+", col = "blue", cex = 2)
+```
+
+
+## Step 3. Process the data
+
+The following describes the teaching steps that demonstrate the general progression from developing scripts, bundling scripts into custom functions, and then finally bundling and documenting custom functions as an R package.
+
+### Load packages
+
+The first step is to load the required packages
+
+```{r}
+library(unmarked)
+library(raster)
+```
+
+### Read raw Survey123 data files and create a data object
+
+For this exampleNext, we need to read in the raw occurrence and sample site data. If they are all saved in the same folder we can first list these files:
+
+```{r}
+# observation data file names
+(o.files <- list.files("../data/raw", 
+                       pattern = "occurrence", 
+                       full.names = TRUE))
+
+# site data file names
+(s.files <- list.files("../data/raw", 
+                       pattern = "sample_site", 
+                       full.names = TRUE))
+```
+
+
+And then determine how many replicate surveys occurred:
+
+```{r}
+(nfiles <- length(o.files))
+```
+
+Next we can create data object for survey years using a "for loop":
+
+```{r}
+years <- rep(NA, nfiles)
+ 
+for(i in 1:nfiles){
+    ind = gregexpr("_", o.files[i])[[1]][2]
+    years[i] <- as.numeric(substr(o.files[i], ind+1, ind+4))
+}
+
+years
+```
+
+
+```{r}
+## create data object for survey years using custom function and sapply function
+extract.years <- function(filename){
+    ind = gregexpr("_", filename)[[1]][2]
+    substr(filename, ind + 1, ind + 4)
+}
+(years <- as.numeric(sapply(o.files, extract.years)))
+
+(nsfiles <- length(s.files))
+```
+
+
+## Quality control
+
+Load packages
+```{r}
+library(unmarked)
+library(raster)
+```
+
+Load the processed data
+```{r}
+year <- 2018
+load(file = paste0("../data/final/species_occurrence_data_", year, ".gzip"))
+str(data.list, max.level=1)
+str(data.list, max.level=2)
+```
+
+### Perform data quality checks with functions from `unmarked` package
+
+```{r}
+str(data.list[[1]]$unmarked.data)
+
+summary(data.list[[1]]$unmarked.data)
+
+plot(data.list[[1]]$unmarked.data)
+
+numSites(data.list[[1]]$unmarked.data)
+
+numY(data.list[[1]]$unmarked.data)
+
+obsNum(data.list[[1]]$unmarked.data)
+
+show(data.list[[1]]$unmarked.data)
+
+obsCovs(data.list[[1]]$unmarked.data)
+
+siteCovs(data.list[[1]]$unmarked.data)
+```
+
+### Additional data quality checks
+
+Create years data object
+```{r}
+years <- sapply(data.list, function(x)x$year)
+```
+
+Calculate naive site occupancy status for sampled sites
+```{r}
+apply(slot(data.list[[1]]$unmarked.data, "y"), 1, max)
+```
+
+Use custom function and more apply functions
+```{r}
+naive.occu <- function(x){apply(slot(x$unmarked.data, "y"), 1, max)}
+naiveoccu <- lapply(data.list, naive.occu)
+str(naiveoccu)
+```
+
+Calculate annual naive occupancy probability for samples sites
+```{r}
+naiveoccu.byyear <- sapply(naiveoccu, mean)
+names(naiveoccu.byyear) <- years
+naiveoccu.byyear
+```
+
+Create and save figure for annual naive occupancy probabilities
+```{r}
+plot(years, naiveoccu.byyear, 
+     ylim = c(0,1), 
+     type = "b", 
+     pch = 16, 
+     frame.plot = FALSE, 
+     axes  =  FALSE,
+     ylab = "Naive proportion of sites occupied", 
+     xlab = "Year")
+axis(2)
+axis(1, at = years)
+```
+
+Tabulate number of surveys conducted by each observer for each site
+```{r}
+table(data.list[[1]]$occdf[,c("id","observer")])
+
+annual.tables <- function(x,year){write.csv(table(x$occdf[,c("id","observer")]),
+                                            paste0("../output/tables/observer_table_", 
+                                                   year, ".csv"))}
+mapply(annual.tables, x = data.list, year = years)
+```
+
+Plot map of naive occupancy
+```{r}
+habcov.raster <- raster("../resources/data/geodata/habcov.asc")
+sitecovs <- data.frame(habcov = values(habcov.raster))
+nsites <- length(habcov.raster)
+rasterpts <- data.frame(rasterToPoints(habcov.raster))
+ss <- as.numeric(names(naiveoccu[[1]]))
+
+plot(habcov.raster, xlab = "X", ylab = "Y", asp = 1)
+points(rasterpts$x[ss], 
+       rasterpts$y[ss], 
+       pch = c(21,16)[naiveoccu[[1]] + 1],
+       col = "blue", 
+       bg = c(NA,"blue")[naiveoccu[[1]] + 1], 
+       cex = 2)
+
+plot.annual.naiveoccu <- function(habcov.raster,naiveoccu,year){
+    png(paste0("../output/figures/naiveoccu_map_",year,".png"), 
+        width = 6.5, 
+        height = 6.5, 
+        units = "in", 
+        res = 96)
+    rasterpts <- data.frame(rasterToPoints(habcov.raster))
+    ss <- as.numeric(names(naiveoccu))
+    plot(habcov.raster, xlab = "X", ylab = "Y", asp = 1)
+    points(rasterpts$x[ss], 
+           rasterpts$y[ss], 
+           pch = c(21,16)[naiveoccu + 1],
+           col = "blue", 
+           bg = c(NA,"blue")[naiveoccu + 1], 
+           cex = 2)
+    dev.off()
+}
+
+mapply(plot.annual.naiveoccu, 
+       naiveoccu = naiveoccu, 
+       year = years, 
+       MoreArgs = list(habcov.raster = habcov.raster))
+```
+
+Check sample distribution of habitat covaraite values
+```{r}
+hist(data.list[[1]]$sitedf$habcov, breaks = seq(-3,3,0.2), ylim = c(0,10),
+     main = "", xlab = "Habitat covariate")
+```
+
+### Class exercise: create a function similar to plot.annual.naiveoccu and use it to create & save a histogram for each year
+
+```{r}
+plot.sample.habcov.hist <- function(){}
+
+plot.sample.habcov.hist <- function(x, year){
+  png(paste0("../output/figures/sample_habcov_hist_", year, ".png"), 
+      width = 6.5, height = 6.5, units = "in", res = 96)
+  hist(x$sitedf$habcov, breaks = seq(-3,3,0.2), ylim = c(0,10),
+      main = "", xlab = "Habitat covariate")
+  dev.off()
+}
+
+mapply(plot.sample.habcov.hist, x = data.list, year = years)
+
+```
+
+### Check for same years in occurrence and site data file names 
+
+Updated custom function
+```{r}
+extract.years <- function(filename){
+    if(grepl("occurrence", filename)) ind = gregexpr("_", filename)[[1]][2]
+    if(grepl("sample_site", filename)) ind = gregexpr("_", filename)[[1]][3]
+    substr(filename, ind + 1, ind + 4)
+}
+```
+
+Read file names, extract years for each data type, and compare years
+```{r}
+o.files <- list.files("../data/raw", 
+                      pattern = "occurrence", 
+                      full.names = TRUE)
+s.files <- list.files("../data/raw", 
+                      pattern = "sample_site", 
+                      full.names = TRUE)
+(o.years <- as.numeric(sapply(o.files, extract.years)))
+(s.years <- as.numeric(sapply(s.files, extract.years)))
+(miss.o <- !(s.years %in% o.years))
+(miss.s <- !(o.years %in% s.years))
+```
+
+
+## Data analysis
+
+Load packages
+```{r}
+library(raster)
+library(unmarked)
+```
+
+Load the data
+```{r}
+year <- 2018
+load(paste0("../data/final/species_occurrence_data_", 
+            year, 
+            ".gzip"))
+years <- unlist(lapply(data.list, function(x)x$year))
+nyears <- length(years)
+habcov.raster <- raster("../resources/data/geodata/habcov.asc")
+sitecovs <- data.frame(habcov = values(habcov.raster))
+nsites <- length(habcov.raster)
+```
+
+Fit models and estimate parameters
+```{r}
+# specify candidate model set
+models <- c(Null = as.formula("~ 1 ~ 1"), 
+            DetCov = as.formula("~ viscov ~ 1"),
+            OccuCov = as.formula("~ 1 ~ habcov"), 
+            Global = as.formula("~ viscov ~ habcov"))
+nmods <- length(models)
+modnames <- c("Null","DetCov","OccuCov","Global")
+
+# fit all candidate models to each year of data
+allfits <- lapply(data.list, function(data)fitList(fits = lapply(models,function(x,data)occu(x,data),
+                                                                 data = data$unmarked.data)))
+```
+
+Process the results
+```{r}
+modeltables <- lapply(allfits, function(x)as(modSel(x), "data.frame"))
+modranks <- as.data.frame(lapply(modeltables, function(x)match(modnames, x$model)),
+                          row.names = modnames, col.names = paste0("Y", years))
+newdata1 <- data.frame(habcov = seq(-3,3,0.1) )
+Epsi <- lapply(allfits, predict, type = "state", newdata = newdata1, appendData = TRUE)
+newdata2 <- data.frame(viscov = factor(c("good","poor")))
+Ep <- lapply(allfits, predict, type = "det", newdata = newdata2, appendData = TRUE)
+
+```
+
+
+```{r}
+source("./functions/get_topmod.R")
+(topmods <- mapply(get.topmod, allfits, modranks))
+```
+
+```{r}
+source("./functions/get_betas.R")
+(betas <- lapply(topmods, get.betas))
+```
+
+```{r}
+source("./functions/plot_betas.R")
+plot.betas(betas, years, modranks)
+```
+
 
 ## Questions and Feedback
 

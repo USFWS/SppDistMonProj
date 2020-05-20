@@ -203,9 +203,9 @@ one.step <- function(year, habcov, nsites, nocc, p, showcoords, cex, ngood, npoo
     occu.data <- sim.occu.data(year, habcov, site.data, nocc, p)
     s123.data <- df2s123df(occu.data, years)
     if(write.data){
-        write.csv(s123.data, file = paste0("../data/raw/occurrence_data_", year, "_raw.csv"),
+        write.csv(s123.data, file = paste0("./data/raw/occurrence_data_", year, "_raw.csv"),
                   row.names = FALSE)
-        write.csv(site.data, file = paste0("../data/raw/sample_site_data_", year, "_raw.csv"),
+        write.csv(site.data, file = paste0("./data/raw/sample_site_data_", year, "_raw.csv"),
                   row.names = FALSE)
     }
     if(write.images){
@@ -214,7 +214,7 @@ one.step <- function(year, habcov, nsites, nocc, p, showcoords, cex, ngood, npoo
                fname = paste0("Year", year, "_Site", df$id, "_",
                               as.character(df$viscov), "_", df$trueoccu),
                seed = 1:nsites, site = paste0("Site ", df$id),
-               MoreArgs = list(path = "../products/presentations", showcoords = showcoords,
+               MoreArgs = list(path = "./products/presentations", showcoords = showcoords,
                                ngood = ngood, npoor = npoor, cex = cex))
     }
     if(return.data)
