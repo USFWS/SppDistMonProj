@@ -3,7 +3,7 @@ Type: Package
 Title: Species Distribution Monitoring Project Data Workflow Tools
 Version: 0.1.0
 Author: Jared Laufenberg
-Maintainer: Jared Laufenberg <jared_laufenberg@fws.gov>
+Maintainer: Jared Laufenberg <jared_laufenberg@fws.gov>, McCrea Cobb <mccrea_cobb@fws.gov>
 Description: Suite of R functions used for simulating, processing, and analyzing data from an example survey project.
 License: What license is it under?
 Encoding: UTF-8

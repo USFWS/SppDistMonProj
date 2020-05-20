@@ -1,22 +1,71 @@
 ---
-author: "Refuge Biologist <refuge_biologist@fws.gov>"
+params:
+  author: 
+    label: "Report author:"
+    value: "Cliff Clavin"
+  email: 
+    label: "Author's email address:"
+    value: "cliff_clavin@fws.gov"
+  phone:
+    label: "Author's phone #:"
+    value: "555-867-5309"
+  o_dir: 
+    label: "Full file path to occurrence data:"
+    value: "C:/Users/mcobb/Desktop/r_webinar/docs/mccrea/demo/data/raw"
+    input: text
+  s_dir: 
+    label: "Full file path to sample site data:"
+    value: "C:/Users/mcobb/Desktop/r_webinar/docs/mccrea/demo/data/raw"
+    input: text
+  hab_data: 
+    label: "Input habitat covariate raster (.asc):"
+    value: 
+    input: file
+author: |
+  | `r params$author`
+  | Cheers National Wildlife Refuge
+  | National Wildlife Refuge System, Boston Region
+  | U.S. Fish and Wildlife Service
+  | `r params$email`
+  | `r params$phone`
 date: "`r Sys.Date()`"
-output: bookdown::pdf_document2
+output: 
+  bookdown::pdf_document2:
+    toc: true
+    includes:
+      in_header: header.tex
+      before_body: before_body.tex
 ---
 
 
-```{r data1, echo=FALSE, results="hide", cache=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+```{r setup, include=FALSE}
 
 # Load packages
 library(raster)
 library(unmarked)
-# library(SppDistMonProj)
+library(knitr)
+library(rmarkdown)
 
-o.files <- list.files("./data/raw", pattern = "occurrence", full.names = TRUE)
+knitr::opts_chunk$set(echo = FALSE, results = "asis", warning = TRUE)
+
+# Get user parameters
+s_dir <- params$s_dir
+o_dir <- params$o_dir
+hab_data <- params$hab_data
+
+```
+
+
+```{r data1, echo=FALSE, results="hide", cache=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+
+o.files <- list.files(o_dir, pattern = "occurrence", full.names = TRUE)
+# o.files <- list.files("./data/raw", pattern = "occurrence", full.names = TRUE)
 o.years <- as.numeric(sapply(o.files, extract.year))
 # o.files <- o.files[o.years <= year]
 o.years <- as.numeric(sapply(o.files, extract.year))
-s.files <- list.files("./data/raw", pattern = "sample_site", full.names = TRUE)
+
+s.files <- list.files(s_dir, pattern = "sample_site", full.names = TRUE)
+# s.files <- list.files("./data/raw", pattern = "sample_site", full.names = TRUE)
 s.years <- as.numeric(sapply(s.files, extract.year))
 # s.files <- s.files[s.years <= year]
 s.years <- as.numeric(sapply(s.files, extract.year))
@@ -33,7 +82,8 @@ nyears <- length(years)
 nlogical <- ifelse(nyears==1, FALSE, TRUE)
 
 # Load spatial data and plot survey map
-habcov <- raster("../resources/data/geodata/habcov.asc")
+habcov <- raster(hab_data)
+# habcov <- raster("../resources/data/geodata/habcov.asc")
 nsites <- length(habcov)
 
 # Load site and occurrence data
@@ -44,13 +94,13 @@ occudfs <- lapply(occu.files, read.csv)
 sdmpData <- process.data(occudfs, sitedfs, years, habcov)
 class(sdmpData) <- c("sdmpData", "list")
 
-##save(data.list,file = paste0("../data/final/species_occurrence_data_", year, ".gzip"))
-save(sdmpData,file = paste0("../data/final/species_occurrence_data_", year, ".RData"))
-figcap <- paste0("Plot of site-specific naive occurrence summed over ",nyears,
+# save(sdmpData,file = paste0("../data/final/species_occurrence_data_", year, ".RData"))
+figcap <- paste0("Plot of site-specific naive occurrence summed over ", nyears,
                  " survey years and represented as scaled blue circles. ",
                  "Cell colors represent habitat covariate values.")
 ```
 
+\newpage
 
 ## Project description
 
@@ -98,7 +148,7 @@ measure of habitat quality measured on the the real number
 scale (Fig. \@ref(fig:habitatmap)).
 
 ```{r surveymap, echo=FALSE, results="hide", fig.cap="Plot of the survey sites (i.e., grid cells) with site IDs and refuge boundary (blue line)."}
-#library(SppDistMonProj)
+
 #print(plot.surveymap(habcov))
 verts = as.vector(sp::bbox(habcov))
 rasterpts = data.frame(raster::rasterToPoints(habcov))
@@ -108,6 +158,7 @@ polygon(x = verts, y = verts[c(1,3,4,2)], lwd = 2, border = "blue")
 ```
 
 ```{r habitatmap, echo=FALSE, results="hide", fig.cap="Plot of the habitat covariate values (scaled colors) at survey sites with site IDs listed at cell centroids."}
+
 #print(plot.habitatmap(habcov))
 rasterpts = data.frame(rasterToPoints(habcov))
 raster::plot(habcov, xlab = "X", ylab = "Y", asp = 1)
@@ -115,6 +166,7 @@ text(rasterpts$x, rasterpts$y, label = 1:nrow(rasterpts), cex = 0.75)
 ```
 
 ```{r habcovhist, echo=FALSE, results="hide", fig.cap="Histogram of habitat covariate measured at all survey sites within study area."}
+
 #print(plot.habcov.hist(habcov))
 hist(values(habcov), breaks = seq(-3,3,0.2), ylim = c(0, 20),
      main = "", xlab = "Habitat covariate")
@@ -125,6 +177,7 @@ hist(values(habcov), breaks = seq(-3,3,0.2), ylim = c(0, 20),
 ### Survey data
 
 ```{r condition1, echo=FALSE, results="hide", cache=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+
 naiveoccus <- sapply(sdmpData$NaiveOccu, mean)
 if(nyears==1){
     text1 <- paste0("To date, 1 covariate has been collected for detection and 1 covariate has been collected",
@@ -134,7 +187,7 @@ if(nyears==1){
     text1 <- paste0("To date, 1 covariate has been collected for detection and 1 covariate has been collected",
                     " for species occurrence. The naive proportions of sites occupied each year ranged from ",
                     min(naiveoccus), " to ", max(naiveoccus),
-                    " (Fig. \\@ref(fig:naiveoccuplot)).")
+                    "(Fig. \\@ref(fig:naiveoccuplot)).")
 }
 ```
 
@@ -143,6 +196,7 @@ cat(text1)
 ```
 
 ```{r naiveoccuplot, eval=nlogical, echo=FALSE, results="asis", fig.cap="Plot of naive proportion of sites occupied each year."}
+
 if(nyears>1){
     plot(years, naiveoccus, ylim = c(0,1), type = "b", pch = 16, frame.plot = FALSE,
          axes = FALSE, ylab = "Naive proportion of sites occupied", xlab = "Year")
@@ -161,13 +215,18 @@ This section contains year-specific summary information ...
 \newpage
 
 ```{r echo=FALSE, results="asis", message=FALSE, warning=FALSE, error=FALSE}
-#library(knitr)
-#library(xtable)
+
 # Directory path for figures
 #figdir.path <- "../products/reports/annual_qc/figure/"
+dir.create("figure")
 figdir.path <- "./figure/"
-dummy <- mapply(annual.summaries, occu = sdmpData$occuDataList, site = sdmpData$siteDataList,
-                year = sdmpData$years, unmkd = sdmpData$unmarkedDataList, naiveoccu = sdmpData$NaiveOccu,
+
+dummy <- mapply(annual.summaries, 
+                occu = sdmpData$occuDataList, 
+                site = sdmpData$siteDataList,
+                year = sdmpData$years, 
+                unmkd = sdmpData$unmarkedDataList, 
+                naiveoccu = sdmpData$NaiveOccu,
                 MoreArgs = list(habcov = sdmpData$habcovData, figdir.path = figdir.path),
                 SIMPLIFY = FALSE)
 ```
