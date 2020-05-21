@@ -17,6 +17,7 @@ Imports:
     xtable,
     unmarked,
     rmarkdown,
-    knitr
+    knitr,
+    bookdown
 VignetteBuilder: knitr
 Suggests:
