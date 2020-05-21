@@ -1,11 +1,17 @@
 ---
 title: "A Guide for Instructors"
 output:
-    bookdown::html_document2:
-      base_format: rmarkdown::html_vignette
+  bookdown::html_document2:
+    base_format: rmarkdown::html_vignette
+    toc: true
+    toc_depth: 2
+    number_sections: false
+    fig_caption: true
+pkgdown:
+  as_is: true
 vignette: >
-  %\VignetteIndexEntry{SppDistMonProj}
-  %\VignetteEngine{bookdown}
+  %\VignetteIndexEntry{My Title}
+  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
