@@ -17,7 +17,7 @@ An R package (in development) used for data workflow training delivered by the F
 ## Instructions
 ```
 if (!require(devtools)) install.packages("devtools")
-devtools::install_github("USFWS/SppDistMonProj")
+devtools::install_github("USFWS/SppDistMonProj", ref = "develop", build_vignettes = TRUE, force = TRUE)
 ```
 
 
