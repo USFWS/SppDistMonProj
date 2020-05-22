@@ -1,11 +1,12 @@
 ---
-title: "A Guide for Instructors"
+title: "SppDistMonProj: a guide for instructors"
 output:
-    bookdown::html_document2:
-      base_format: rmarkdown::html_vignette
+  bookdown::html_document2:
+    base_format: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{SppDistMonProj}
-  %\VignetteEngine{bookdown}
+  %\VignetteIndexEntry{Introduction to SppDistMonProj}
+  %\VignetteEngine{knitr::rmarkdown}
+
   %\VignetteEncoding{UTF-8}
 ---
 
@@ -37,10 +38,11 @@ The first step is generate data, either through simulation (detailed in [Simulat
 
 If you do not have any data in hand, the first step is to generate some data through simulation. `SppDistMonProj::create.raster()` generates a raster (.asc) of covariate values.  `SppDistMonProj::one.step()` simulates, formats and saves survey site `site.data` and observation data `occu.data`. Observation data are outputted as `unmarked::occu.data` formatted dataframes and as raw data output would be generated from ArcGIS Survey123 app (`s123.data`). The following scripts show the steps needed to create these datasets.
 
-```{r, message=FALSE}
+```{r}
 # Load required package
-library(raster)
-library(SppDistMonProj)
+# library(raster)
+# library(SppDistMonProj)
+
 ```
 
 Create a project directory
@@ -106,7 +108,8 @@ data.list <- mapply(one.step, year = years,
 
 ### Option B. Collecting data using ArcGIS Survey123
 
-A second option is to have students collect "data" as an in-class exercise using ArcGIS Survey123. The example Survey123 project is located [here](). Contact [Jared Laufenberg](mailto:jared_laufenberg@fws.gov) for access.
+A second option is to have students collect "data" as an in-class exercise using ArcGIS Survey123. An example Survey123 project is located [here](). Contact [Jared Laufenberg](mailto:jared_laufenberg@fws.gov) for access.
+
 
 Need content here
 
@@ -115,7 +118,8 @@ Need content here
 
 ```{r}
 # Load packages
-library(raster)
+#library(raster)
+
 ```
 
 ```{r}

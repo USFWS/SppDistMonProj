@@ -13,3 +13,8 @@ notifications:
   email:
     on_success: change
     on_failure: change
+
+deploy:
+  provider: script
+  script: Rscript -e 'pkgdown::deploy_site_github(verbose = TRUE, ssh_id = Sys.getenv("TRAVIS_DEPLOY_KEY", ""))'
+  skip_cleanup: true
